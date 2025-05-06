@@ -1,23 +1,25 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Tabs, Tab } from 'react-bootstrap';
 import logo from '../logo.svg';
+import Header from './Header.jsx';
 import './App.css';
 
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
+            <div className="App">
+                <Header />
+                <div className="container mt-4">
+                    <Tabs defaultActiveKey="tab1" id="my-tabs">
+                        <Tab eventKey="tab1" title="Tickets">
+                            <p className="mt-3">This is content for Tab 1.</p>
+                        </Tab>
+                        <Tab eventKey="tab2" title="Inventario">
+                            <p className="mt-3">This is content for Tab 2.</p>
+                        </Tab>
+                    </Tabs>
+                </div>
+            </div>
         </div>
     );
 }
