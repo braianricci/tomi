@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Tabs, Tab } from 'react-bootstrap';
 import logo from '../logo.svg';
 import Header from './Header.jsx';
+import Inventory from '../components/Inventory.js';
 import './App.css';
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
                             <p className="mt-3">This is content for Tab 1.</p>
                         </Tab>
                         <Tab eventKey="tab2" title="Inventario">
-                            <p className="mt-3">This is content for Tab 2.</p>
+                            <Inventory />
                         </Tab>
                     </Tabs>
                 </div>
