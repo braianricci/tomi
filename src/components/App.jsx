@@ -1,8 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Tabs, Tab } from 'react-bootstrap';
-import logo from '../logo.svg';
 import Header from './Header.jsx';
-import Inventory from '../components/Inventory.js';
+import Inventory from '../components/Inventory.jsx';
 import './App.css';
 
 function App() {

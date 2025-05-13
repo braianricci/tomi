@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import Categories from '../components/Categories.jsx';
+import ItemTable from '../components/ItemTable.jsx';
 
-const InventoryList = () => {
+
+const Inventory = () => {
+    const [categories, setCategories] = useState([]);
+    const [selectedCategoryId, setSelectedCategoryId] = useState(null);
     const [items, setItems] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
     const [details, setDetails] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3001/items')
+        fetch('http://localhost:3001/categorias')
             .then(res => res.json())
-            .then(setItems)
+            .then(setCategories)
             .catch(console.error);
     }, []);
 
@@ -25,26 +30,16 @@ const InventoryList = () => {
     return (
         <div>
             <h2>Inventory</h2>
-            <ul>
-                {items.map(item => (
-                    <li key={item.id}>
-                        <strong>{item.item_name}</strong> ({item.category_name}) {' '}
-                        <button onClick={() => loadDetails(item.id)}>View Details</button>
-                    </li>
-                ))}
-            </ul>
-            {selectedItem && (
-                <div>
-                    <h3>Details for Item #{selectedItem}</h3>
-                    <ul>
-                        {details.map((c, i) => (
-                            <li key={i}><strong>{c.key}:</strong> {c.value}</li>
-                        ))}
-                    </ul>
-                </div>
-            )}
+            <Categories
+                categories={categories}
+                onSelect={setSelectedCategoryId}
+                selectedId={selectedCategoryId}
+            />
+            <div className="col-md-8">
+                {selectedCategoryId && <ItemTable categoryId={selectedCategoryId} />}
+            </div>
         </div>
     );
 };
 
-export default InventoryList;
+export default Inventory;
