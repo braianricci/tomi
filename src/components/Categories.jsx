@@ -2,24 +2,25 @@ import React from 'react';
 
 const Categories = ({ categories, onSelect, selectedId }) => {
     return (
-        <table className="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Categorías</th>
-                </tr>
-            </thead>
-            <tbody>
+        <>
+            <h4>Categorías</h4>
+            <div
+                className="d-flex flex-wrap gap-2 overflow-auto"
+                style={{ maxHeight: '200px', margin: '20px' }}
+            >
                 {categories.map(cat => (
-                    <tr
+                    <button
+                        type="button"
+                        className="btn btn-outline-primary"
                         key={cat.id}
-                        style={{ backgroundColor: cat.id === selectedId ? '#eef' : '' }}
+                        style={{ backgroundColor: cat.id === selectedId ? '#cfcfff' : undefined }}
                         onClick={() => onSelect(cat.id)}
                     >
-                        <td>{cat.name}</td>
-                    </tr>
+                        {cat.name}
+                    </button>
                 ))}
-            </tbody>
-        </table>
+            </div>
+        </>
     );
 };
 

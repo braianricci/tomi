@@ -35,7 +35,7 @@ const Inventory = () => {
                 onSelect={setSelectedCategoryId}
                 selectedId={selectedCategoryId}
             />
-            <div className="col-md-8">
+            <div className="">
                 {selectedCategoryId && <ItemTable categoryId={selectedCategoryId} />}
             </div>
         </div>
