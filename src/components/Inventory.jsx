@@ -17,7 +17,7 @@ const Inventory = () => {
             .catch(console.error);
     }, []);
 
-    const loadDetails = (id) => {
+    /*const loadDetails = (id) => {
         fetch(`http://localhost:3001/items/${id}`)
             .then(res => res.json())
             .then(data => {
@@ -25,20 +25,18 @@ const Inventory = () => {
                 setDetails(data.characteristics);
             })
             .catch(console.error);
-    };
+    };*/
 
     return (
-        <div>
+        <>
             <h2>Inventory</h2>
             <Categories
                 categories={categories}
                 onSelect={setSelectedCategoryId}
                 selectedId={selectedCategoryId}
             />
-            <div className="">
-                {selectedCategoryId && <ItemTable categoryId={selectedCategoryId} />}
-            </div>
-        </div>
+            <ItemTable categoryId={selectedCategoryId} />
+        </>
     );
 };
 

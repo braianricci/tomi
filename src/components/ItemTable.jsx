@@ -38,6 +38,7 @@ const ItemTable = ({ categoryId }) => {
                         ))}
                     </tr>
                 ))}
+                <tr><button className="btn btn-outline-primary">+ agregar item</button></tr>
             </tbody>
         </table>
     );
