@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import CategoryForm from './CategoryForm.jsx';
+
 
 const Categories = ({ categories, onSelect, selectedId, onSave }) => {
     const [showForm, setShowForm] = useState(false);
@@ -77,23 +79,16 @@ const Categories = ({ categories, onSelect, selectedId, onSave }) => {
             </div>
 
             {showForm && (
-                <div className="p-3 border bg-light">
-                    <h5>{editing ? 'Edit Categories' : 'Nueva categoria:'}</h5>
-                    {formCats.map((cat, index) => (
-                        <div key={index} className="d-flex mb-2">
-                            <input
-                                type="text"
-                                className="form-control me-2"
-                                value={cat.name}
-                                onChange={e => updateName(index, e.target.value)}
-                            />
-                            <button className="btn btn-danger" onClick={() => removeField(index)}>-</button>
-                        </div>
-                    ))}
-                    <button className="btn btn-secondary me-2" onClick={addField}>Add</button>
-                    <button className="btn btn-primary me-2" onClick={handleSubmit}>Save</button>
-                    <button className="btn btn-danger" onClick={closeNewForm}>Cancel</button>
-                </div>
+                <CategoryForm
+                    formCats={formCats}
+                    setFormCats={setFormCats}
+                    editing={editing}
+                    onSave={(data, isEditing) => {
+                        onSave(data, isEditing);
+                        setShowForm(false);
+                    }}
+                    onCancel={closeNewForm}
+                />
             )}
         </>
     );
