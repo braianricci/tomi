@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Categories from '../components/Categories.jsx';
-import ItemTable from '../components/ItemTable.jsx';
+import Categories from './Categories.jsx';
+import ItemTable from './ItemTable.jsx';
 
 
 const Inventory = () => {

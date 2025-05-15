@@ -23,7 +23,6 @@ const ItemTable = ({ categoryId }) => {
         <table className="nowrap table table-bordered table-hover w-100">
             <thead>
                 <tr>
-                    <th>Nombre</th>
                     {allKeys.map(key => (
                         <th key={key}>{key}</th>
                     ))}
@@ -32,13 +31,16 @@ const ItemTable = ({ categoryId }) => {
             <tbody>
                 {items.map(item => (
                     <tr key={item.id}>
-                        <td>{item.name}</td>
                         {allKeys.map(key => (
-                            <td key={key}>{item.characteristics[key] || '-'}</td>
+                            <td key={key}>{item.characteristics?.[key] || '-'}</td>
                         ))}
                     </tr>
                 ))}
-                <tr><button className="btn btn-outline-primary">+ agregar item</button></tr>
+                <tr>
+                    <td colSpan={allKeys.length}>
+                        <button className="btn btn-outline-primary">+ agregar item</button>
+                    </td>
+                </tr>
             </tbody>
         </table>
     );

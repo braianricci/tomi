@@ -11,7 +11,7 @@ function App() {
             <div className="container mt-4">
                 <Tabs defaultActiveKey="tab1" id="my-tabs">
                     <Tab eventKey="tab1" title="Tickets">
-                        <p className="mt-3">This is content for Tab 1.</p>
+                        <p className="mt-3">** se jijeaba **</p>
                     </Tab>
                     <Tab eventKey="tab2" title="Inventario">
                         <Inventory />
